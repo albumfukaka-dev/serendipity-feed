@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#F5F0EB">
+    <title>意外之喜</title>
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <span class="header-title">意外之喜</span>
+        <span class="header-counter" id="counter"></span>
+    </header>
+
+    <div class="feed-container" id="feed"></div>
+
+    <nav class="bottom-nav">
+        <button class="nav-btn active" onclick="showFeed()">探索</button>
+        <button class="nav-btn" onclick="shuffleFeed()">换一批</button>
+        <button class="nav-btn" onclick="toggleSaved()">收藏 <span id="savedCount"></span></button>
+    </nav>
+
+    <div class="saved-panel" id="savedPanel">
+        <div class="saved-panel-header">
+            <span class="saved-panel-title">已收藏</span>
+            <button class="close-btn" onclick="toggleSaved()">✕</button>
+        </div>
+        <div id="savedList"></div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

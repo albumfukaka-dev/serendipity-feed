@@ -1,0 +1,242 @@
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #F5F0EB;
+    --bg-card: #FFFFFF;
+    --bg-hover: #FAF7F2;
+    --text: #2D2B27;
+    --text-secondary: #6B6560;
+    --text-dim: #9E9691;
+    --accent: #C67B5C;
+    --accent-light: #E8C4B2;
+    --accent-sage: #7D8B75;
+    --accent-blue: #6B89A5;
+    --accent-plum: #8B6B7F;
+    --accent-ochre: #B8963E;
+    --border: rgba(45, 43, 39, 0.08);
+    --shadow-sm: 0 1px 3px rgba(45, 43, 39, 0.06);
+    --shadow-md: 0 4px 16px rgba(45, 43, 39, 0.08);
+    --radius: 12px;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Header */
+.header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 16px 24px 12px;
+    background: linear-gradient(to bottom, var(--bg) 70%, transparent);
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+.header-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px; font-weight: 600;
+    color: var(--text);
+    letter-spacing: 2px;
+}
+
+.header-counter {
+    font-size: 12px; color: var(--text-dim); font-weight: 400;
+}
+
+/* Feed */
+.feed-container {
+    height: 100%; overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 60px; padding-bottom: 76px;
+}
+.feed-container::-webkit-scrollbar { display: none; }
+
+/* Card */
+.card {
+    scroll-snap-align: start;
+    min-height: calc(100vh - 136px);
+    margin: 6px 16px;
+    padding: 32px 24px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; overflow: hidden;
+    animation: fadeIn 0.4s ease both;
+}
+
+.card::before {
+    content: ''; position: absolute;
+    top: 0; left: 24px; right: 24px; height: 1px;
+}
+
+.card[data-domain="认知科学"]::before { background: var(--accent-blue); }
+.card[data-domain="建筑"]::before { background: var(--accent-sage); }
+.card[data-domain="控制论"]::before { background: var(--accent-ochre); }
+.card[data-domain="美学"]::before { background: var(--accent-plum); }
+.card[data-domain="艺术史"]::before { background: var(--accent); }
+.card[data-domain="音乐"]::before { background: var(--accent-sage); }
+.card[data-domain="人类学"]::before { background: var(--accent-ochre); }
+.card[data-domain="数学"]::before { background: var(--accent-blue); }
+.card[data-domain="社会学"]::before { background: var(--accent-plum); }
+.card[data-domain="哲学"]::before { background: var(--accent); }
+.card[data-domain="设计"]::before { background: var(--accent-sage); }
+.card[data-domain="生物学"]::before { background: var(--accent-sage); }
+.card[data-domain="物理学"]::before { background: var(--accent-blue); }
+.card[data-domain="文学"]::before { background: var(--accent-plum); }
+.card[data-domain="教育"]::before { background: var(--accent-ochre); }
+.card[data-domain="手工艺"]::before { background: var(--accent); }
+.card[data-domain="表演"]::before { background: var(--accent-plum); }
+.card[data-domain="游戏"]::before { background: var(--accent-blue); }
+.card[data-domain="神经科学"]::before { background: var(--accent-blue); }
+.card[data-domain="心理学"]::before { background: var(--accent-plum); }
+.card[data-domain="媒体理论"]::before { background: var(--accent-ochre); }
+.card[data-domain="生态学"]::before { background: var(--accent-sage); }
+.card[data-domain="语言学"]::before { background: var(--accent); }
+.card[data-domain="城市学"]::before { background: var(--accent-ochre); }
+.card[data-domain="历史"]::before { background: var(--accent); }
+.card[data-domain="政治哲学"]::before { background: var(--accent-plum); }
+.card[data-domain="符号学"]::before { background: var(--accent-ochre); }
+.card[data-domain="复杂性科学"]::before { background: var(--accent-blue); }
+.card[data-domain="认识论"]::before { background: var(--accent); }
+.card[data-domain="戏剧"]::before { background: var(--accent-plum); }
+.card[data-domain="现象学"]::before { background: var(--accent); }
+.card[data-domain="摄影"]::before { background: var(--accent-sage); }
+
+.card-domain {
+    font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px;
+}
+
+.card-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px; font-weight: 600; line-height: 1.4;
+    margin-bottom: 6px; color: var(--text);
+}
+
+.card-subtitle {
+    font-size: 13px; color: var(--text-dim); margin-bottom: 20px;
+    font-style: italic; font-weight: 300;
+}
+
+.card-hook {
+    font-size: 15px; line-height: 1.8; color: var(--text);
+    margin-bottom: 20px; font-weight: 300;
+}
+
+.card-connection {
+    padding: 14px 16px;
+    background: #FAF7F2;
+    border-left: 2px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 20px;
+}
+
+.card-connection-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.5px;
+    color: var(--accent); margin-bottom: 4px;
+}
+
+.card-connection-text {
+    font-size: 13px; line-height: 1.7; color: var(--text-secondary);
+}
+
+.card-keywords {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto;
+}
+
+.keyword {
+    font-size: 11px; padding: 3px 10px; border-radius: 16px;
+    background: var(--bg); border: 1px solid var(--border);
+    color: var(--text-dim);
+}
+
+.card-actions {
+    display: flex; gap: 10px; margin-top: 16px;
+}
+
+.action-btn {
+    flex: 1; padding: 10px; border: 1px solid var(--border);
+    border-radius: 8px; background: transparent;
+    color: var(--text-secondary); font-size: 13px;
+    cursor: pointer; transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.action-btn:active { transform: scale(0.97); }
+.action-btn.saved {
+    background: rgba(198, 123, 92, 0.08);
+    border-color: var(--accent-light); color: var(--accent);
+}
+.action-btn svg { width: 15px; height: 15px; }
+
+/* Bottom Nav */
+.bottom-nav {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+    padding: 10px 20px calc(10px + env(safe-area-inset-bottom));
+    background: linear-gradient(to top, var(--bg) 80%, transparent);
+    display: flex; justify-content: center; gap: 8px;
+}
+
+.nav-btn {
+    padding: 8px 20px; border: 1px solid var(--border);
+    border-radius: 20px; background: var(--bg-card);
+    color: var(--text-secondary); font-size: 13px;
+    cursor: pointer; transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+}
+.nav-btn:active { transform: scale(0.97); }
+.nav-btn.active {
+    background: var(--text); color: var(--bg);
+    border-color: var(--text);
+}
+
+/* Saved Panel */
+.saved-panel {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 200; background: var(--bg);
+    transform: translateX(100%); transition: transform 0.3s ease;
+    overflow-y: auto; padding: 20px;
+}
+.saved-panel.open { transform: translateX(0); }
+
+.saved-panel-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 24px; padding-top: 16px;
+}
+.saved-panel-title {
+    font-family: 'Noto Serif SC', serif; font-size: 18px; font-weight: 600;
+}
+.close-btn {
+    width: 32px; height: 32px; border: 1px solid var(--border);
+    border-radius: 50%; background: transparent;
+    color: var(--text-secondary); font-size: 16px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+}
+
+.saved-item {
+    padding: 14px; border: 1px solid var(--border);
+    border-radius: 8px; margin-bottom: 8px; background: var(--bg-card);
+}
+.saved-item-title {
+    font-family: 'Noto Serif SC', serif; font-size: 15px; font-weight: 500; margin-bottom: 2px;
+}
+.saved-item-domain { font-size: 11px; color: var(--text-dim); }
+
+.empty-state {
+    text-align: center; color: var(--text-dim);
+    padding: 60px 20px; font-size: 14px; line-height: 1.8;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
