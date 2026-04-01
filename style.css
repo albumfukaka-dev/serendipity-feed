@@ -28,6 +28,9 @@ html, body {
     font-family: 'Inter', -apple-system, 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
+    /* Standalone mode safe area */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
     font-size: 15px;
     line-height: 1.7;
 }

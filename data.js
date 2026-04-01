@@ -1,3 +1,4 @@
+const DATA_VERSION = "season2";
 const DATA = [
 {domain:"认知科学",title:"安迪·克拉克的延展心灵",subtitle:"Andy Clark · Supersizing the Mind · 2008",hook:"你的心灵不在你的头颅里。当你用笔记本记电话号码时，那个笔记本就是你认知系统的一部分——跟你的海马体没有本质区别。工具不是心灵的辅助，工具就是心灵。",connection:"你用 Obsidian 构建知识体系、用 AI 辅助思考——克拉克会说这不是「借助工具」，这就是你的心灵在运作。你的认知边界早就超出了你的身体。",keywords:["延展心灵","认知脚手架","耦合系统","具身-嵌入认知"],
 deepDive:[

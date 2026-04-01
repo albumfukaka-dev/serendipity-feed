@@ -1,3 +1,12 @@
+// ==================== Version Check ====================
+// Clear saved & seen when data version changes (new season)
+const storedVersion = localStorage.getItem('serendipity-version');
+if (typeof DATA_VERSION !== 'undefined' && storedVersion !== DATA_VERSION) {
+    localStorage.removeItem('serendipity-saved');
+    localStorage.removeItem('serendipity-seen');
+    localStorage.setItem('serendipity-version', DATA_VERSION);
+}
+
 // ==================== State ====================
 let savedItems = JSON.parse(localStorage.getItem('serendipity-saved') || '[]');
 let seenItems = JSON.parse(localStorage.getItem('serendipity-seen') || '[]');
